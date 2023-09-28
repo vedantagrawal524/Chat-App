@@ -27,10 +27,35 @@ class _AuthScreenState extends State<AuthScreen> {
 
   final _formKey = GlobalKey<FormState>();
 
+  void _showDialog() {
+    showAdaptiveDialog(
+      context: context,
+      builder: (ctx) => AlertDialog.adaptive(
+        title: const Text('Invalid Input'),
+        content: const Text(
+            'Please ensure that you have entered valid Credentials & also have selected an image!'),
+        actions: [
+          TextButton(
+            onPressed: () {
+              Navigator.pop(ctx);
+            },
+            child: Text(
+              'Okay',
+              style: TextStyle(
+                color: Theme.of(context).colorScheme.primary,
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
   void _submit() async {
     final isValid = _formKey.currentState!.validate();
 
     if (!isValid || !_isLogin && _selectedImage == null) {
+      _showDialog();
       return;
     }
 
@@ -96,7 +121,7 @@ class _AuthScreenState extends State<AuthScreen> {
                   right: 20,
                 ),
                 width: 300,
-                child: Image.asset('assets/images/chat.jpg'),
+                child: Image.asset('assets/images/logo.jpg'),
               ),
               Card(
                 margin: const EdgeInsets.all(20),

@@ -24,8 +24,8 @@ class MyApp extends StatelessWidget {
       title: 'ChatApp',
       theme: ThemeData().copyWith(
         useMaterial3: true,
-        colorScheme: ColorScheme.fromSeed(
-            seedColor: const Color.fromARGB(255, 63, 17, 177)),
+        colorScheme:
+            ColorScheme.fromSeed(seedColor: Color.fromARGB(255, 186, 85, 188)),
       ),
       home: StreamBuilder(
         stream: FirebaseAuth.instance.authStateChanges(),

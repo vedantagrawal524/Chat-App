@@ -30,7 +30,7 @@ class _ChatScreenState extends State<ChatScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Chats'),
+        title: const Text('WeChat'),
         actions: [
           IconButton(
             onPressed: () {
